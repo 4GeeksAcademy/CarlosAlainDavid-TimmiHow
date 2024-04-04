@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {logo-footer} from "../../img/logo-footer-05.png";
+import LogoFooter from "../../img/logo-footer-05.png";
 
 export const Footer = () => (
 	<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top p-5">
@@ -7,7 +7,7 @@ export const Footer = () => (
 
 		<a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
 			<img src='https://drive.google.com/file/d/1cT9Bk6hXwDiAZEIDxLPaskiG5ggxilPz/view?usp=sharing' alt='timmihow-logo'/>
-			<img src={logo-footer} />
+			<img src={LogoFooter} />
 		</a>
 
 		<ul class="nav col-md-4 justify-content-end">
