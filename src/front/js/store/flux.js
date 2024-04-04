@@ -1,6 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			token: undefined,
+			localStorageCheck: undefined,
 			message: null,
 			demo: [
 				{
@@ -16,7 +18,68 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
+			
+			logIn: async (body) => {
+				const response = await fetch(
+					process.env.BACKEND_URL + "/api/log-ins",{
+						method: "POST",
+						body: JSON.stringify(body),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					}
+				);
+				if(response.status !== 201) return false;
+				 const myBody = await response.json();
+				 setStore({token: myBody.access_token});
+				 localStorage.setItem("token", myBody.access_token)
+				 return true;
+			},
+
+			register: async (body) => {
+				const response = await fetch(
+					process.env.BACKEND_URL + "/api/register",{
+						method: "POST",
+						body: JSON.stringify(body),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					}
+				);
+				if(response.status !== 201) return false;
+				 return true;
+			},
+
+			checkTokenOnLocalStorage: () => {
+				if(localStorage.getItem("token")){
+					setStore({ token: localStorage.getItem("token") });
+				} 
+				setStore({ localStorageCheck: true });
+			},
+
+			fecthPrivateEndPoint: async () => {
+				const store = getStore();
+				const response = await fetch(
+					process.env.BACKEND_URL + "/api/private",{
+						headers: {
+							"Content-Type": "aplication/json",
+							"Authorization": "Bearer " + store.token
+						}
+					}
+				);
+				const body = await response.json();
+				setStore({privateData: body.message});
+			},
+
+			logUserOut: () => {
+				setStore({
+					token: undefined
+				});
+				if(localStorage.getItem("token")){
+					localStorage.removeItem("token");
+				} 
+			},
+// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
