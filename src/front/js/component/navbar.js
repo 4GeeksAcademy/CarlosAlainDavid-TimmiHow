@@ -52,8 +52,8 @@ export const Navbar = () => {
 				<div className="ml-auto">
 					{store.localStorageCheck && !store.token
 						?<>
-							<button type="button" className="btn btn-primary" onClick={showModalSignin}>Log-in</button>
-							<button type="button" className="btn btn-primary" onClick={showModalSignup}>Log-out</button>
+							<button type="button" className="btn btn-primary me-2" onClick={showModalSignin}>Sign-in</button>
+							<button type="button" className="btn btn-primary" onClick={showModalSignup}>Sign-up</button>
 						</>
 						:<button className="btn btn-primary me-2"
 									onClick={(event)=>{actions.logUserOut()}}
