@@ -44,16 +44,25 @@ export const Navbar = () => {
 
 
 	return <>
-		<nav className="navbar navbar-light bg-light">
+		<nav className="navbar navbar-dark bg-dark">
 			<div className="container">
 				<Link to="/">
 					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
 				</Link>
-				<div className="ml-auto">
+				<div className="ml-auto d-flex">
 					{store.localStorageCheck && !store.token
 						?<>
-							<button type="button" className="btn btn-primary me-2" onClick={showModalSignin}>Sign-in</button>
-							<button type="button" className="btn btn-primary" onClick={showModalSignup}>Sign-up</button>
+							<button type="button"
+								className="btn btn-link text-decoration-none text-light shadow-none"
+								onClick={showModalSignin}>
+									Sign-in
+								</button>
+							<vr className="border border-light border-1 my-2" />
+							<button type="button" 
+								className="btn btn-link text-decoration-none text-light shadow-none" 
+								onClick={showModalSignup}>
+									Sign-up
+							</button>
 						</>
 						:<button className="btn btn-primary me-2"
 									onClick={(event)=>{actions.logUserOut()}}
