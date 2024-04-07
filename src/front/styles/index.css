@@ -1,3 +1,16 @@
-/* 
-    General Styles used on every website (Don't Repeat Yourself)
-*/
+*{margin: 0;}
+@font-face {
+    font-family: "Gotham";
+    src:url("../fonts/Gotham.ttf") format("truetype");
+    font-weight: bold;
+}
+.Navbar-top {
+    background-color: rgb(3, 28, 63);
+    color: white;
+}
+.nav-item:hover {
+    border-bottom: 6px solid rgb(255, 193, 7);
+}
+.nav-item {
+    font-family: "Gotham" !important;
+}
