@@ -27,8 +27,14 @@ export const Signin = ({ hideModal, modalRef }) => {
 	}
 
     return <>
-        <div className="modal fade" ref={modalRef} tabIndex="-1" >
-            <div className="modal-dialog">
+        <div class="modal fade" 
+            id="exampleModalToggle" 
+            aria-labelledby="exampleModalToggleLabel"
+            aria-hidden="true" 
+            data-bs-backdrop='static'
+            tabindex="-1"
+            ref={modalRef}>
+            <div className="modal-dialog modal-sm">
                 <div className="modal-content">
                    
                     <div className="modal-body">
@@ -74,6 +80,11 @@ export const Signin = ({ hideModal, modalRef }) => {
                             </div>
                         </div>
                         <div className="modal-footer border border-0 p-0">
+                            <button class="btn btn-link text-decoration-none"
+                                data-bs-target="#exampleModalToggle2" 
+                                data-bs-toggle="modal">
+                                    New here? Go to sign-up!!
+                            </button>
                             <button type="button"
                                 className="btn btn-secondary"
                                 onClick={hideModal}>

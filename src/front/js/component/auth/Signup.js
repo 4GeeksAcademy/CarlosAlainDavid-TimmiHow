@@ -27,8 +27,13 @@ export const Signup = ({ hideModal, modalRef }) => {
 	}
 
 	return <>
-   <div className="modal fade" ref={modalRef} tabIndex="-1" >
-      <div className="modal-dialog">
+    <div class="modal fade" 
+        id="exampleModalToggle2"
+        aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" 
+        tabindex="-1"
+        ref={modalRef}>
+        <div className="modal-dialog modal-sm">
           <div className="modal-content">
             <div className="modal-body">  
               {show && 
@@ -82,6 +87,7 @@ export const Signup = ({ hideModal, modalRef }) => {
                           onClick={ event => handleRegister(event) }>
                               Submit
                       </button>
+                      <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
                   </div>
               </div>
           </div>
