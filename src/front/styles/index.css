@@ -1,9 +1,7 @@
-*{margin: 0;}
-@font-face {
-    font-family: "Gotham";
-    src:url("../fonts/Gotham.ttf") format("truetype");
-    font-weight: bold;
-}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{margin: 0; font-family: "Raleway";}
+
 .Navbar-top {
     background-color: rgb(3, 28, 63);
     color: white;
@@ -12,5 +10,5 @@
     border-bottom: 6px solid rgb(255, 193, 7);
 }
 .nav-item {
-    font-family: "Gotham" !important;
+    font-family: "Raleway";
 }
