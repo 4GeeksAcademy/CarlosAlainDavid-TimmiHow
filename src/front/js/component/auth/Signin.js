@@ -1,6 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../../store/appContext";
 import { useNavigate } from "react-router-dom";
+import grayBackground from "../../../img/gray-background-auth.png";
+import { AuthTrouble } from "../alerts/AuthTrouble";
+import "../../../styles/auth.css";
 
 export const Signin = ({ hideModal, modalRef }) => {
     
@@ -23,18 +26,18 @@ export const Signin = ({ hideModal, modalRef }) => {
             hideModal();
 		}
 		else{
-		 setShow(true);
+            handleVisible();
 		} 
 	}
 
+    const handleVisible = () => {
+        setShow(true)
+        setTimeout(() => {
+            setShow(false)
+        }, 5000);
+    } 
+
     return <>
-       {show && 
-            <div className="alert alert-danger d-flex justify-content-center align-items-center" role="alert" style={{zIndex:9999}}>
-                <div >
-                    Somenthing wrong with the login, please try again.
-                </div>
-            </div>
-        }
         <div className="modal fade" 
             id="exampleModalToggle" 
             aria-labelledby="exampleModalToggleLabel"
@@ -43,16 +46,16 @@ export const Signin = ({ hideModal, modalRef }) => {
             tabindex="-1"
             ref={modalRef}>
             <div className="modal-dialog modal-sm">
-                <div className="modal-content">
-                   
+                <div className="modal-content" style={{backgroundImage: `url(${grayBackground})`,  backgroundSize:'cover'}}>
                     <div className="modal-body">
+                        { show && <AuthTrouble alertMsg={"Somenthing wrong with the login, please try again."} /> }
                          <div className="modal-header border border-0 p-0 mb-3">
                             <h2 className="modal-title" style={{color:"#FBC006"}}>SignIn</h2>
                             <button type="button" className="btn-close" onClick={hideModal} aria-label="Close"></button>
                         </div>
                         <div className="row">
                             <div className="col">
-                                <form>
+                                <form style={{color:"#071C3F"}}>
                                     <div className="input-group-sm mb-3">
                                         <label 
                                             className="form-label">
@@ -92,7 +95,7 @@ export const Signin = ({ hideModal, modalRef }) => {
                             </button> */}
                             <button type="button"
                                 className="btn btn-primary"
-                                style={{backgroundColor:"#D43381", border:"none"}}
+                                style={{backgroundColor:"#D43381", border:"none", color:"#071C3F"}}
                                 onClick={ event => handleLogin(event)}>
                                     Submit
                             </button>

@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../store/appContext";
 import { useNavigate } from "react-router-dom";
+import grayBackground from "../../../img/gray-background-auth.png";
+import { AuthTrouble } from "../alerts/AuthTrouble";
 
 export const Signup = ({ hideModal, modalRef }) => {
   
@@ -24,11 +26,20 @@ export const Signup = ({ hideModal, modalRef }) => {
 			navigate("/login");
 		}
 		else{
-		 setShow(true);
+            handleVisible();
 		} 
 	}
 
+    const handleVisible = () => {
+        setShow(true)
+        setTimeout(() => {
+            setShow(false)
+        }, 4000);
+    } 
+
+
 	return <>
+   
     <div className="modal fade" 
         id="exampleModalToggle2"
         aria-hidden="true"
@@ -36,23 +47,17 @@ export const Signup = ({ hideModal, modalRef }) => {
         tabindex="-1"
         ref={modalRef}>
         <div className="modal-dialog modal-sm">
-          <div className="modal-content">
+        <div className="modal-content" style={{backgroundImage: `url(${grayBackground})`,  backgroundSize:'cover'}}>
             <div className="modal-body">  
-                    {show && 
-                    <div className="alert alert-danger d-flex justify-content-center align-items-center" role="alert">
-                        <div >
-                            Somenthing wrong with the login, please try again.
-                        </div>
-                    </div>
-                    }
+                { show && <AuthTrouble alertMsg={"Somenthing wrong with the Register process, please try again."} /> }
                 <div className="modal-header border border-0 p-0 mb-3">
                     <h2 className="modal-title" style={{color:"#071C3F"}}>Register</h2>
                     <button type="button" className="btn-close" onClick={hideModal} aria-label="Close"></button>
                 </div>
                 <div className="row">
                     <div className="col">
-                        <form>
-                            <div class="input-group-sm mb-3">
+                        <form style={{color:"#071C3F"}}>
+                            <div className="input-group-sm mb-3">
                                 <label      
                                     className="form-label">
                                         Name
@@ -117,7 +122,7 @@ export const Signup = ({ hideModal, modalRef }) => {
                     </button> */}
                     <button type="button"
                         className="btn btn-primary"
-                        style={{backgroundColor:"#FBC006",  border:"none"}}
+                        style={{backgroundColor:"#FBC006",  border:"none", color:"#071C3F"}}
                         onClick={ event => handleRegister(event) }>
                             Submit
                     </button>
