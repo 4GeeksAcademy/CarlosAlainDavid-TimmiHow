@@ -31,10 +31,12 @@ return (
         Welcome to Timmihow! More than a school, a helping hand for the immigrant to the United States.
       </h1>
       <p className="Introductory-Text lead">
-        Quickly design and customize responsive mobile-first sites with
-        Bootstrap, the world’s most popular front-end open source toolkit,
-        featuring Sass variables and mixins, responsive grid system, extensive
-        prebuilt components, and powerful JavaScript plugins.
+        A new life in a different country will always bring new challenges, right?
+        Getting paperwork done, knowing what to do or even where to start can certainly 
+        be something worth learning and discovering, as opportunities will also start to
+        come as days pass by. We're here to take you to some of the most important pieces
+        of knowledge you may need to get yourself ready and confident for your life in
+        the United States of America. Let's do this! We can make it!
       </p>
       </div>
   </div>
