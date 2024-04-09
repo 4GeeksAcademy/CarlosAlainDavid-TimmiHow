@@ -5,7 +5,7 @@ import WomanDeco from "../../img/woman-deco.png"
 
 const Hero = () => {
 return (
-    <div className="col-xxl-12">
+  <div className="col-xxl-12">
   <div className="row flex-lg-row-reverse justify-content-between align-items-center g-5">
     <div className="position-relative col-10 col-sm-8 col-lg-6">
       <img
@@ -41,10 +41,7 @@ return (
       </div>
   </div>
 </div>
-
 ) 
-
-
 }
 
 export default Hero
