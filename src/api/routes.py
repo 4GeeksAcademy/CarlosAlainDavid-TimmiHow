@@ -3,7 +3,7 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-from api.models import db, User
+from api.models import db, User, Provider, Consumer
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 
@@ -55,7 +55,67 @@ def handle_logins():
     return jsonify( access_token = access_token ), 201
 
 
+# Endpoint para agregar un nuevo usuario
+@api.route('/user', methods=['POST'])
+def add_user():
+    data = request.json
+    username = data.get('username')
+    email = data.get('email')
+    password = data.get('password')
+    role = data.get('role')
 
+    if not (username and email and password and role):
+        return jsonify({'message': 'Missing parameters'}), 400
+
+    if role == 'provider':
+        new_user = Provider(username=username, email=email, password=password)
+    elif role == 'consumer':
+        new_user = Consumer(username=username, email=email, password=password)
+    else:
+        new_user = User(username=username, email=email, password=password)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({'message': 'User added successfully'}), 201
+
+# Endpoint para eliminar un usuario
+@api.route('/user/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    user = User.query.get(user_id)
+    if not user:
+        return jsonify({'message': 'User not found'}), 404
+
+    db.session.delete(user)
+    db.session.commit()
+
+    return jsonify({'message': 'User deleted successfully'}), 200
+
+# Endpoint para modificar un usuario
+@api.route('/user/<int:user_id>', methods=['PUT'])
+def update_user(user_id):
+    user = User.query.get(user_id)
+    if not user:
+        return jsonify({'message': 'User not found'}), 404
+
+    data = request.json
+    username = data.get('username')
+    email = data.get('email')
+    password = data.get('password')
+
+    if username:
+        user.username = username
+    if email:
+        user.email = email
+    if password:
+        user.password = password
+
+    db.session.commit()
+
+    return jsonify({'message': 'User updated successfully'}), 200
+
+if __name__ == '__main__':
+    api.run(debug=True)
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
