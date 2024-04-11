@@ -3,7 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			token: undefined,
 			localStorageCheck: undefined,
-			message: null,
+			errorMessages: null,
+			successMessages: null,
 			demo: [
 				{
 					title: "FIRST",
@@ -46,7 +47,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					}
 				);
-				return response.body;
+				
+				const data = await response.json();
+				if(response.status !== 201){
+					setStore({errorMessages : data.message});
+					return false;
+				}else{
+					setStore({successMessages : data.message});
+					return true;
+				}
+
+				
+				
 			},
 
 			checkTokenOnLocalStorage: () => {
@@ -78,6 +90,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					localStorage.removeItem("token");
 				} 
 			},
+			resetEndPointsMsg: () => {setStore({errorMessages: null, successMessages : null})},
 // Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

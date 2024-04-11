@@ -81,6 +81,7 @@ export const Navbar = () => {
 		<Signup  
 			modalRef={modalRefSignup}
 			hideModal={hideModalSignup}
+			showModalSignin={showModalSignin}
 		/>
 </>
 };

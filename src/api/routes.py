@@ -22,11 +22,11 @@ def register_user():
     role = data.get('role')
 
     if not email or not password:
-        return jsonify({'error': 'An email and password are required'}), 400
+        return jsonify({'message': 'An email and password are required'}), 400
 
     existing_user = User.query.filter_by(email=email).first()
     if existing_user:
-        return jsonify({'error': 'The email is already in use'}), 400
+        return jsonify({'message': 'The email is already in use'}), 400
 
    
     if role == 'provider':
@@ -43,7 +43,7 @@ def register_user():
         return jsonify({'message': 'Successfully registered user'}), 201
     except Exception as e:
         db.session.rollback()
-        return jsonify({'error': f'Failed to register user: {str(e)}'}), 500
+        return jsonify({'message': f'Failed to register user: {str(e)}'}), 500
     
 
 @api.route('/log-ins', methods=['POST'])
@@ -52,15 +52,15 @@ def handle_logins():
     password = request.json.get('password', None)
 
     if email is None or password is None:
-        return jsonify({'error': 'No email or password'}), 400
+        return jsonify({'message': 'No email or password'}), 400
     
     user = User.query.filter_by( email = email ).one_or_none()
 
     if user is None:
-        return jsonify({'error': "No such user"}), 404
+        return jsonify({'message': "No such user"}), 404
    
     if user.password != password:
-        return jsonify({"error": "Bad username or password"}), 401
+        return jsonify({"message": "Bad username or password"}), 401
 
     access_token = create_access_token( identity = user.id )
     return jsonify( access_token = access_token ), 201

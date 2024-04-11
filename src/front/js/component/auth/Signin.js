@@ -86,7 +86,6 @@ export const Signin = ({ hideModal, modalRef }) => {
                                                     New here? Go to sign-up!!
                                         </button>
                                         </div>
-                                        
                                     </div>
                                 </form>
                             </div>
