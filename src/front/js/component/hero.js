@@ -28,7 +28,7 @@ return (
     </div>
     <div className="col-lg-6">
       <h1 className="Hero-Title display-5 fw-bold text-body-emphasis lh-1 mb-3">
-        Welcome to Timmihow! A helping hand for the immigrant to the United States.
+        Welcome to <span className="our-yellow">Timmihow! </span> A helping hand for the immigrant to the <span className="our-pink">United States. </span>
       </h1>
       <p className="Introductory-Text lead">
         Different contry... new life... new challenges, right?

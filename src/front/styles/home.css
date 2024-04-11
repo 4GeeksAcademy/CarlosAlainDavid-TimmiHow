@@ -14,3 +14,18 @@ color: rgb(3, 28, 63);
     0%{opacity: 0;}
     100%{opacity: 1;}
 }
+.our-yellow {
+    color: rgb(255, 193, 7);
+}
+.our-blue {
+    color: rgb(3, 28, 63);
+}
+.our-pink {
+    color: rgb(214, 51, 132);
+}
+.Introductory-Text {
+    margin-right: 0%;
+}
+.Section-2:hover {
+    color: rgb(255, 193, 7);
+}
