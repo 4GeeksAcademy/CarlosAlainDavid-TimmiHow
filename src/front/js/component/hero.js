@@ -28,15 +28,14 @@ return (
     </div>
     <div className="col-lg-6">
       <h1 className="Hero-Title display-5 fw-bold text-body-emphasis lh-1 mb-3">
-        Welcome to Timmihow! More than a school, a helping hand for the immigrant to the United States.
+        Welcome to Timmihow! A helping hand for the immigrant to the United States.
       </h1>
       <p className="Introductory-Text lead">
-        A new life in a different country will always bring new challenges, right?
-        Getting paperwork done, knowing what to do or even where to start can certainly 
-        be something worth learning and discovering, as opportunities will also start to
-        come as days pass by. We're here to take you to some of the most important pieces
-        of knowledge you may need to get yourself ready and confident for your life in
-        the United States of America. Let's do this! We can make it!
+        Different contry... new life... new challenges, right?
+        From knowing what to do or even where to start can certainly be something
+        worth learning and discovering. We're here to help you guide through all the basic knowledge 
+        and skills you need to get yourself ready and confident for your life in this country.
+        Let's do this! We can make it!
       </p>
       </div>
   </div>
