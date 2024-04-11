@@ -13,20 +13,27 @@ export const Signup = ({ hideModal, modalRef }) => {
     const [ lastname, setLastname ] = useState('');
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
+    const [ role, setRole ] = useState('consumer');
+
 
   const handleRegister = async(event) => {
 		event. preventDefault();
 		setShow(false);
 		const response = await actions.register({
+            username: name +' '+ lastname,
 			email: email, 
-			password: password
+			password: password,
+            role: role
 		});
 
-		if(response === true){
-			navigate("/login");
+		
+        if(response.status !== 201){
+            alert(response.body.error)
+            console.log(response.body.error)
+            handleVisible();
 		}
 		else{
-            handleVisible();
+            navigate("/login");
 		} 
 	}
 
@@ -103,23 +110,50 @@ export const Signup = ({ hideModal, modalRef }) => {
                                     value={ password }
                                     onChange={ event => setPassword(event.target.value) }
                                 />
-                                 <button type="button" className="btn btn-link text-decoration-none"
-                                    data-bs-target="#exampleModalToggle" 
-                                    data-bs-toggle="modal">
-                                        Go to Sign-in.
-                                </button>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" 
+                                            type="radio" 
+                                            name="exampleRadios" 
+                                            id="exampleRadios1" 
+                                            value={role}
+                                            checked={role === "provider"}
+                                            onChange={ () => setRole("provider") }
+                                        />
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Provider
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" 
+                                            type="radio" name="exampleRadios" 
+                                            id="exampleRadios2" 
+                                            value={role}
+                                            checked={role === "consumer"}
+                                            onChange={ () => setRole("consumer") }
+                                        />
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Consumer
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div className="input-group-sm d-flex justify-content-end">
+                                        <button type="button"
+                                                className="btn btn-link text-decoration-none shadow-none"
+                                                data-bs-target="#exampleModalToggle" 
+                                                data-bs-toggle="modal">
+                                                    Go to Sign-in.
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
                 </div>
-              
-              
                 <div className="modal-footer border border-0 p-0">
-                    {/* <button type="button"
-                        className="btn btn-secondary"
-                        onClick={hideModal}>
-                            Close
-                    </button> */}
                     <button type="button"
                         className="btn btn-primary"
                         style={{backgroundColor:"#FBC006",  border:"none", color:"#071C3F"}}

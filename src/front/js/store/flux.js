@@ -46,8 +46,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					}
 				);
-				if(response.status !== 201) return false;
-				 return true;
+				return response.body;
 			},
 
 			checkTokenOnLocalStorage: () => {

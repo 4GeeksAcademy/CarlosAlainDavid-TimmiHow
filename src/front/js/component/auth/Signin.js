@@ -78,11 +78,15 @@ export const Signin = ({ hideModal, modalRef }) => {
                                             value={ password }
                                             onChange={ event => setPassword(event.target.value) }
                                         />
-                                        <button type="button" className="btn btn-link text-decoration-none"
+                                        <div className="input-group-sm d-flex justify-content-end">
+                                        <button type="button" 
+                                                className="btn btn-link text-decoration-none shadow-none"
                                                 data-bs-target="#exampleModalToggle2" 
                                                 data-bs-toggle="modal">
                                                     New here? Go to sign-up!!
                                         </button>
+                                        </div>
+                                        
                                     </div>
                                 </form>
                             </div>
@@ -95,7 +99,7 @@ export const Signin = ({ hideModal, modalRef }) => {
                             </button> */}
                             <button type="button"
                                 className="btn btn-primary"
-                                style={{backgroundColor:"#D43381", border:"none", color:"#071C3F"}}
+                                style={{backgroundColor:"#D43381", border:"none"}}
                                 onClick={ event => handleLogin(event)}>
                                     Submit
                             </button>
