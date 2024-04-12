@@ -36,3 +36,14 @@ color: rgb(3, 28, 63);
 .card-background {
     background-color: rgb(3, 28, 63);
 }
+.background-pink {
+    background-color: rgb(214, 51, 132);
+}
+@keyframes resize {
+    0%{transform: scale(2);}
+    100%{transform: scale(1);}
+}
+.resize-animation {
+    animation: resize ease-in 1s;
+    animation-iteration-count: 1;
+}
