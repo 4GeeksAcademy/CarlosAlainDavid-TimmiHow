@@ -6,7 +6,7 @@ color: rgb(3, 28, 63);
     font-size: 25px;
     color: rgb(3, 28, 63);
 }
-.Woman-Hero {
+.fading {
     animation: fade-in ease-in 1s;
     animation-iteration-count: 1;
 }
@@ -28,4 +28,11 @@ color: rgb(3, 28, 63);
 }
 .Section-2:hover {
     color: rgb(255, 193, 7);
+}
+.font-size-headers {
+    font-size: 70px;
+    font-weight: 650;
+}
+.card-background {
+    background-color: rgb(3, 28, 63);
 }

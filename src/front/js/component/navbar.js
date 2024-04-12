@@ -14,7 +14,7 @@ export const Navbar = () => {
 				<div style={{width:"7%"}}>
 					<img className= "img-fluid" src={Logo}/>
 				</div>
-				<ul className="navbar-nav d-flex flex-row gap-3 fw-medium fs-4">
+				<ul className="navbar-nav our-blue d-flex flex-row gap-3 fw-medium fs-4">
 					<li className="nav-item">
 						<a className="nav-link active" aria-current="page" href="#">
 							Who are we

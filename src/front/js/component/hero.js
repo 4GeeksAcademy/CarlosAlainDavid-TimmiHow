@@ -5,7 +5,7 @@ import WomanDeco from "../../img/woman-deco.png"
 
 const Hero = () => {
 return (
-  <div className="col-xxl-12">
+  <div className="px-5 col-xxl-12">
   <div className="row flex-lg-row-reverse justify-content-between align-items-center g-5">
     <div className="position-relative col-10 col-sm-8 col-lg-6">
       <img
@@ -19,7 +19,7 @@ return (
       />
       <img
         src={WomanHero}
-        className="Woman-Hero d-block ms-lg-auto img-fluid"
+        className="fading d-block ms-lg-auto img-fluid"
         alt="Bootstrap Themes"
         width={700}
         height={500}
@@ -31,7 +31,7 @@ return (
         Welcome to <span className="our-yellow">Timmihow! </span> A helping hand for the immigrant to the <span className="our-pink">United States. </span>
       </h1>
       <p className="Introductory-Text lead">
-        Different contry... new life... new challenges, right?
+        Different country... new life... new challenges, right?
         From knowing what to do or even where to start can certainly be something
         worth learning and discovering. We're here to help you guide through all the basic knowledge 
         and skills you need to get yourself ready and confident for your life in this country.
