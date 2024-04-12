@@ -9,22 +9,22 @@ const OurAdvantages = () => {
     const ImageList = [{
         image: CheckBadge,
         title: "Verified Tutors",
-        description: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        description: "We connect people with expert tutors, each carefully verified to ensure the quality and reliability of their experience.",
     },
     {
         image: RotatingGear,
         title: "Reliable Content",
-        description: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        description: "We strive to offer carefully curated resources by experts in each field. We provide you with accurate and up-to-date information that will make your integration process into the US easier.",
     },
     {
         image: Clock,
         title: "Time Flexibility",
-        description: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        description: "Learn at your own pace with our flexible hours! Our services are designed to adapt to your time, giving you the opportunity to access classes and resources at any time and from anywhere.",
     },
     {
         image: SupportiveHands,
         title: "Support",
-        description: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        description: "We are here to help you every step of the way. We have a dedicated team available to answer your questions, resolve technical issues, and provide you with the support you need to make the most of our services.",
     },
     ]
 
