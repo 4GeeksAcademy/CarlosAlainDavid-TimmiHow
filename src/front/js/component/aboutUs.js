@@ -12,13 +12,12 @@ const AboutUs = () => {
                 </div>
                 <div className="about-us-container d-flex justify-content-between align-items-center">
                     <div className="card card-background shadow p-3 col-lg-6"
-                    style={{marginBottom: "9%", borderRadius: "15px" }}>
+                        style={{ marginBottom: "9%", borderRadius: "15px" }}>
                         <p className="Introductory-Text text-light lead fading text-align-center">
-                            Different country... new life... new challenges, right?
-                            From knowing what to do or even where to start can certainly be something
-                            worth learning and discovering. We're here to help guide you through all the basic knowledge
-                            and skills you need to get yourself ready and confident for your life in this country.
-                            Let's do this! We can make it!
+                            We are the first educational portal for immigrants to the United States. We're a dedicated team committed to empowering you with
+                            tailored lessons and expert guidance. Through Timmihow, both experts in different fields and eager students,we bridge the gap
+                            between your dreams and reality, ensuring every step forward is purposeful. Join our
+                            community and let's make your new life aspirations a reality together!"
                         </p>
                     </div>
                     <div className="col-lg-6 d-block">

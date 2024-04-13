@@ -11,26 +11,26 @@ const Footer = () => {
         <footer className="py-5">
           <div className="row">
             <div className="col-6 col-md-2 mb-3">
-              <h5 className="our-yellow">Section</h5>
+              <h5 className="our-yellow">Academic</h5>
               <ul className="nav flex-column">
                 <li className="nav-item mb-2">
                   <a href="#" className="text-light nav-link p-0 text-body-secondary">
-                    Home
+                    Our Courses
                   </a>
                 </li>
                 <li className="nav-item mb-2">
                   <a href="#" className="text-light nav-link p-0 text-body-secondary">
-                    Features
+                    Our Tutors
                   </a>
                 </li>
                 <li className="nav-item mb-2">
                   <a href="#" className="text-light nav-link p-0 text-body-secondary">
-                    Pricing
+                    Become a Timmihow Tutor
                   </a>
                 </li>
                 <li className="nav-item mb-2">
                   <a href="#" className="text-light nav-link p-0 text-body-secondary">
-                    FAQs
+                    Student Testimonies
                   </a>
                 </li>
                 <li className="nav-item mb-2">
@@ -41,16 +41,16 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-6 col-md-2 mb-3">
-              <h5 className="our-yellow">Section</h5>
+              <h5 className="our-yellow">Bussiness</h5>
               <ul className="nav flex-column">
                 <li className="nav-item mb-2">
                   <a href="#" className="nav-link text-light p-0 text-body-secondary">
-                    Home
+                    Work with Us
                   </a>
                 </li>
                 <li className="nav-item mb-2">
                   <a href="#" className="nav-link text-light p-0 text-body-secondary">
-                    Features
+                    Franchise
                   </a>
                 </li>
                 <li className="nav-item mb-2">
@@ -60,18 +60,18 @@ const Footer = () => {
                 </li>
                 <li className="nav-item mb-2">
                   <a href="#" className="nav-link text-light p-0 text-body-secondary">
-                    FAQs
+                    Legal Information
                   </a>
                 </li>
                 <li className="nav-item mb-2">
                   <a href="#" className="nav-link text-light p-0 text-body-secondary">
-                    About
+                    Timmihow for Companies
                   </a>
                 </li>
               </ul>
             </div>
             <div className="col-6 col-md-2 mb-3">
-              <h5 className="our-yellow">Section</h5>
+              <h5 className="our-yellow">Quick Links</h5>
               <ul className="nav flex-column">
                 <li className="nav-item mb-2">
                   <a href="#" className="nav-link text-light p-0 text-body-secondary">
@@ -95,15 +95,15 @@ const Footer = () => {
                 </li>
                 <li className="nav-item mb-2">
                   <a href="#" className="nav-link text-light p-0 text-body-secondary">
-                    About
+                    Technical Support
                   </a>
                 </li>
               </ul>
             </div>
             <div className="col-md-5 offset-md-1 mb-3">
               <form>
-                <h5>Subscribe to our newsletter</h5>
-                <p>Monthly digest of what's new and exciting from us.</p>
+                <h5>Subscribe to our newsletter!</h5>
+                <p>Monthly digest of what's new to learn with Timmihow and our Community.</p>
                 <div className="d-flex flex-column flex-sm-row w-100 gap-2">
                   <label htmlFor="newsletter1" className="visually-hidden">
                     Email address
@@ -149,9 +149,7 @@ const Footer = () => {
           </div>
         </footer>
       </div>
-
     </div>
-
   );
 }
 
