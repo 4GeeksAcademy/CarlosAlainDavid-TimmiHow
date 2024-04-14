@@ -11,7 +11,7 @@ const Footer = () => {
         <footer className="py-5">
           <div className="row">
             <div className="col-6 col-md-2 mb-3">
-              <h5 className="our-yellow">Academic</h5>
+              <h5 className="our-yellow pb-1">Academic</h5>
               <ul className="nav flex-column">
                 <li className="nav-item mb-2">
                   <a href="#" className="text-light nav-link p-0 text-body-secondary">
@@ -41,7 +41,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-6 col-md-2 mb-3">
-              <h5 className="our-yellow">Bussiness</h5>
+              <h5 className="our-yellow pb-1">Bussiness</h5>
               <ul className="nav flex-column">
                 <li className="nav-item mb-2">
                   <a href="#" className="nav-link text-light p-0 text-body-secondary">
@@ -71,7 +71,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-6 col-md-2 mb-3">
-              <h5 className="our-yellow">Quick Links</h5>
+              <h5 className="our-yellow pb-1">Quick Links</h5>
               <ul className="nav flex-column">
                 <li className="nav-item mb-2">
                   <a href="#" className="nav-link text-light p-0 text-body-secondary">
