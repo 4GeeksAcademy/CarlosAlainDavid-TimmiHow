@@ -4,6 +4,7 @@ import "../../styles/home.css";
 import Hero from "../component/hero";
 import AboutUs from "../component/aboutUs";
 import OurAdvantages from "../component/ourAdvantages";
+import OurCourses from "../component/ourCourses";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -13,6 +14,7 @@ export const Home = () => {
 		<Hero />	
 		<AboutUs />
 		<OurAdvantages />
-		</div>
+		<OurCourses />
+		</div>		
 	);
 };
