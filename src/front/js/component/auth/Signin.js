@@ -22,7 +22,7 @@ export const Signin = ({ hideModal, modalRef }) => {
 		});
 
 		if(response === true){
-			navigate("/private");
+			navigate("/");
             hideModal();
 		}
 		else{

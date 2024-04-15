@@ -53,22 +53,48 @@ export const Navbar = () => {
 					{store.localStorageCheck && !store.token
 						?<>
 							<button type="button"
-								className="btn btn-link text-decoration-none text-light shadow-none"
+								className="
+									btn btn-link 
+									text-decoration-none 
+									text-light 
+									shadow-none"
 								onClick={showModalSignin}>
 									Sign-in
 								</button>
-							<vr className="border border-light border-1 my-2" />
+							<vr className="
+									border 
+									border-light 
+									border-1 
+									my-2" />
 							<button type="button" 
-								className="btn btn-link text-decoration-none text-light shadow-none" 
+								className="
+									btn btn-link 
+									text-decoration-none 
+									text-light 
+									shadow-none" 
 								onClick={showModalSignup}>
 									Sign-up
 							</button>
 						</>
-						:<button className="btn btn-primary me-2"
-									onClick={(event)=>{actions.logUserOut()}}
-							>
+						:<>
+						<div className="text-light fs-6 d-flex align-items-center me-3
+						animate__animated an<p claimate__pulse">
+							Alain Estrada
+						</div>
+						<vr className="
+									border 
+									border-light 
+									border-1 
+									my-2" />
+						<button className="
+									btn btn-link 
+									text-decoration-none 
+									text-light 
+									shadow-none" 
+								onClick={(event)=>{actions.logUserOut()}}>
 								Logout
 						</button>
+						</>
 					}
 				</div>
 			</div>

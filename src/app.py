@@ -10,6 +10,7 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
+from flask_jwt_extended import JWTManager
 
 # from models import Person
 
@@ -26,6 +27,22 @@ if db_url is not None:
         "postgres://", "postgresql://")
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////tmp/test.db"
+
+
+#cons este ejemplo puedo obtener una cadena de string
+# $ python
+# Python 3.10.12 (main, Jun  7 2023, 19:32:10) [GCC 10.2.1 20210110] on linux
+# Type "help", "copyright", "credits" or "license" for more information.
+# >>> import os
+# >>> print(os.urandom(16).hex())
+# 0bfb47cc90df7ee011c0d8b2200b4b7f
+# >>> 
+
+
+app.config["JWT_SECRET_KEY"] = os.environ.get("FLASK_APP_KEY")
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = 24 * 60 * 60 
+# app.config["JWT_ALGORITHM"] = "HS256"
+jwt = JWTManager(app)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type=True)
