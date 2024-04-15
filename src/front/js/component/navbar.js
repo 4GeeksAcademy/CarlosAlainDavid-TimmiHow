@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { Signin } from "./auth/Signin";
 import { Signup } from "./auth/Signup";
+import Logo from "../../img/timmihow-name-xs.png";
 
 export const Navbar = () => {
 	 
@@ -97,6 +98,29 @@ export const Navbar = () => {
 						</>
 					}
 				</div>
+				
+				<div className="Navbar-bottom w-100 d-flex align-items-center justify-content-between gap-2 px-3 py-2">
+					<div style={{width:"7%"}}>
+						<img className= "img-fluid" src={Logo}/>
+					</div>
+				</div>
+				<ul className="navbar-nav our-blue d-flex flex-row gap-3 fw-medium fs-4">
+					<li className="nav-item">
+						<a className="nav-link active" aria-current="page" href="#">
+							Who are we
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#">
+							Our Advantages
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#">
+							Our Courses
+						</a>
+					</li>
+				</ul>
 			</div>
 		</nav>
 
@@ -104,6 +128,7 @@ export const Navbar = () => {
 			modalRef={modalRefSignin}
 			hideModal={hideModalSignin}
 		/>
+
 		<Signup  
 			modalRef={modalRefSignup}
 			hideModal={hideModalSignup}
