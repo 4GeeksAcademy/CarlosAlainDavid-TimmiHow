@@ -6,6 +6,7 @@ import { BackendURL } from "./component/backendURL";
 import { Home } from "./pages/home";
 import { Consumer } from "./pages/consumer/Consumer";
 import { Provider } from "./pages/provider/Provider";
+import { Topics } from "./pages/topics/Topics";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -26,7 +27,8 @@ const Layout = () => {
                         <Route element={<Home />} path="/" />
                         <Route element={<Consumer />} path="/consumer" />
                         <Route element={<Provider />} path="/provider" />
-                        <Route element={<h1>Not found!</h1>} />
+                        <Route element={<Topics />} path="/topics/:category" />
+                        <Route element={<h1>Not found!</h1>} path="*" />
                     </Routes>
                     <Footer />
                 </ScrollToTop>

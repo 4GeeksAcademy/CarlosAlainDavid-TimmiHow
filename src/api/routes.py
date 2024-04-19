@@ -76,7 +76,7 @@ def handle_logins():
         return jsonify({"message": "Bad username or password"}), 401
 
     access_token = create_access_token(identity=user.id)
-    return jsonify(access_token=access_token, email=user.email, role=user.role), 201
+    return jsonify(access_token=access_token, email=user.email, role=user.role, username=user.username), 201
 
 
 # Endpoint para eliminar un usuario

@@ -11,7 +11,7 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	const modalRefSignin = useRef()
-	const navigate = useNavigate();
+	const navigate = useNavigate(Navigate);
 
 	const showModalSignin = () => {
 		const modalEle = modalRefSignin.current
@@ -77,9 +77,8 @@ export const Navbar = () => {
 							</button>
 						</>
 						: <>
-							<div className="text-light fs-6 d-flex align-items-center me-3
-						animate__animated an<p claimate__pulse">
-								Alain Estrada
+							<div className="text-light fs-6 d-flex align-items-center me-3 animate__animated animate__pulse">
+								{store.authenticatedUser ? store.authenticatedUser.username : <></>}
 							</div>
 							<vr className="
 									border 
@@ -90,7 +89,7 @@ export const Navbar = () => {
 									btn btn-link 
 									text-decoration-none 
 									text-light 
-									shadow-none"
+									shadow-none ps-3"
 								onClick={(event) => { actions.logUserOut(); navigate("/") }}>
 								Logout
 							</button>

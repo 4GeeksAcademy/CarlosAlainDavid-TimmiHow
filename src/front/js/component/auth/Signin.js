@@ -21,8 +21,15 @@ export const Signin = ({ hideModal, modalRef }) => {
             password: password
         });
 
-        if (response === true) {
+        if (response === true && store.authenticatedUser.role === "consumer") {
             navigate("/consumer");
+            hideModal();
+        }
+        else {
+            handleVisible();
+        }
+        if (response === true && store.authenticatedUser.role === "provider") {
+            navigate("/provider");
             hideModal();
         }
         else {

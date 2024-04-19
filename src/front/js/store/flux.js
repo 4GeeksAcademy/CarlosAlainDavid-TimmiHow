@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			token: undefined,
+			authenticatedUser: undefined,
 			localStorageCheck: undefined,
 			errorMessages: null,
 			successMessages: null,
@@ -33,8 +34,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if (response.status !== 201) return false;
 				const myBody = await response.json();
 				setStore({ token: myBody.access_token });
-				console.log("myBODY: ", myBody);
+				setStore({ authenticatedUser: myBody });
 				localStorage.setItem("token", myBody.access_token)
+				localStorage.setItem("username", myBody.username)
+				localStorage.setItem("role", myBody.role)
+
 				return true;
 			},
 
@@ -63,6 +67,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			checkTokenOnLocalStorage: () => {
+				if (localStorage.getItem("username")) {
+					setStore({ username: localStorage.getItem("username") });
+				}
+				if (localStorage.getItem("role")) {
+					setStore({ role: localStorage.getItem("role") });
+				}
 				if (localStorage.getItem("token")) {
 					setStore({ token: localStorage.getItem("token") });
 				}
@@ -85,10 +95,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			logUserOut: () => {
 				setStore({
-					token: undefined
+					token: undefined,
+					authenticatedUser: undefined
 				});
 				if (localStorage.getItem("token")) {
 					localStorage.removeItem("token");
+				}
+				if (localStorage.getItem("username")) {
+					localStorage.removeItem("username");
+				}
+				if (localStorage.getItem("role")) {
+					localStorage.removeItem("role");
 				}
 			},
 			resetEndPointsMsg: () => { setStore({ errorMessages: null, successMessages: null }) },

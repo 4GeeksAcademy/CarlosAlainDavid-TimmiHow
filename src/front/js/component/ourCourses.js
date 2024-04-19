@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Metatron from "../../img/metatron.png"
 import Burger from "../../img/burger.png"
 import Flag from "../../img/flag.png"
@@ -39,7 +40,10 @@ const OurCourses = () => {
                         <p className="Introductory-Text text-light lead fading text-align-center">
                             {selection.description} </p>
                     </div>
-                    <button className="btn btn-warning">Book your first class!</button>
+                    {/* <button className="btn btn-warning">Book your first class!</button> */}
+                    <Link to={`topics/${selection.subtitle}`} className="btn btn-primary">
+                        <button className="btn btn-warning">See Courses!</button>
+                    </Link>
                 </div>}
             </div>
         </div>
