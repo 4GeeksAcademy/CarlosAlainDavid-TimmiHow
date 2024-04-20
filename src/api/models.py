@@ -1,6 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
 
-
 db = SQLAlchemy()
 
 class User(db.Model):
@@ -9,8 +8,8 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
-    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
-    role = db.Column(db.String(20))  # This field will be used to distinguish between provider and consumer
+    is_active = db.Column(db.Boolean(), nullable=False)
+    role = db.Column(db.String(20))
 
     __mapper_args__ = {
         'polymorphic_identity': 'user',
@@ -22,8 +21,9 @@ class User(db.Model):
 
 class Provider(User):
     __tablename__ = 'providers'
-    id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
-    # campos especificos para el provider
+    
+
+    # Campos específicos para el proveedor
 
     __mapper_args__ = {
         'polymorphic_identity': 'provider'
@@ -34,8 +34,8 @@ class Provider(User):
 
 class Consumer(User):
     __tablename__ = 'consumers'
-    id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
-    # campos escpecificos para el consumer
+   
+    # Campos específicos para el consumidor
 
     __mapper_args__ = {
         'polymorphic_identity': 'consumer'
