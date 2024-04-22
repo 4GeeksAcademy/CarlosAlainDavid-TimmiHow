@@ -45,11 +45,11 @@ def register_user():
         return jsonify({'message': 'The email is already in use'}), 400
 
     if role == 'provider':
-        new_user = Provider(username=username, email=email, password=password, is_active=True)
+        new_user = Provider(username=username, email=email, password=password, is_active=True, role=role)
     elif role == 'consumer':
-        new_user = Consumer(username=username, email=email, password=password, is_active=True)
+        new_user = Consumer(username=username, email=email, password=password, is_active=True, role=role)
     else:
-        new_user = User(username=username, email=email, password=password, role=role)
+        new_user = User(username=username, email=email, password=password, is_active=True , role=role)
     try:
         db.session.add(new_user)
         db.session.commit()
