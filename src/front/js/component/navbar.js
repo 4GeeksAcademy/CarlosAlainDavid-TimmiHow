@@ -80,13 +80,8 @@ export const Navbar = () => {
 							<div className="text-light fs-6 d-flex align-items-center me-3 animate__animated animate__pulse">
 								{store.authenticatedUser ? store.authenticatedUser.username : <></>}
 							</div>
-							<vr className="
-									border 
-									border-light 
-									border-1 
-									my-2" />
-							<button className="
-									btn btn-link 
+							<vr className="border border-light border-1 my-2" />
+							<button className="btn btn-link 
 									text-decoration-none 
 									text-light 
 									shadow-none ps-3"

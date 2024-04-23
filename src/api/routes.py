@@ -65,15 +65,15 @@ def handle_logins():
     password = request.json.get('password', None)
 
     if email is None or password is None:
-        return jsonify({'message': 'No email or password'}), 400
+        return jsonify({'message': 'Email or password is missing'}), 400
     
-    user = User.query.filter_by( email = email ).one_or_none()
+    user = User.query.filter_by(email=email).one_or_none()
 
     if user is None:
-        return jsonify({'message': "No such user"}), 404
+        return jsonify({'message': 'User not found'}), 404
    
-    if user.password != password:
-        return jsonify({"message": "Bad username or password"}), 401
+    if not user.check_password(password):
+        return jsonify({'message': 'Incorrect email or password'}), 401
 
     access_token = create_access_token(identity=user.id)
     return jsonify(access_token=access_token, email=user.email, role=user.role, username=user.username), 201
