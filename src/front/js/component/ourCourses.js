@@ -9,6 +9,9 @@ import Scale from "../../img/scale.png"
 import Toolbox from "../../img/toolbox.png"
 
 const OurCourses = () => {
+
+    const category = ' ';
+
     const courseList = [
         { image: Flag, subtitle: "Immigration Law", description: "Explore the depths of Immigration Law with our specialized lessons. Designed for legal professionals and enthusiasts alike, our course offers a structured journey through visas, citizenship, asylum, and deportation procedures. Led by experienced instructors, our interactive sessions provide practical insights and discussions to navigate this complex field confidently. Join us and unravel the legal intricacies shaping migration to the United States.", x: "calc(50% - 61px)", y: "3%" },
 
@@ -41,7 +44,7 @@ const OurCourses = () => {
                             {selection.description} </p>
                     </div>
                     {/* <button className="btn btn-warning">Book your first class!</button> */}
-                    <Link to={`topics/${selection.subtitle}`} className="btn btn-primary">
+                    <Link to={`topics/${selection.subtitle.replaceAll(category, "-")}`} className="btn btn-primary">
                         <button className="btn btn-warning">See Courses!</button>
                     </Link>
                 </div>}

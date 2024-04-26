@@ -15,7 +15,7 @@ class User(db.Model):
 
     __mapper_args__ = {
         'polymorphic_identity': 'user',
-        'polymorphic_on': role
+        'polymorphic_on': role  
     }
 
     def __init__(self, username, email, password, is_active, role):
@@ -56,3 +56,28 @@ class Consumer(User):
     def __repr__(self):
         return f'<Consumer {self.username}>'
     
+class Course(db.Model):
+    __tablename__ = 'courses'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    nationality = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    number_of_sessions = db.Column(db.Integer, nullable=False)
+    author = db.Column(db.String(100), nullable=False) 
+    date_of_release = db.Column(db.Date)
+
+    def __repr__(self):
+        return f'<Course {self.title}>'
+    
+    def serialize(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'nationality': self.nationality,
+            'description': self.description,
+            'price': self.price,
+            'number_of_sessions': self.number_of_sessions,
+            'author': self.author,
+            'date_of_release': self.date_of_release.strftime('%Y-%m-%d') if self.date_of_release else None
+        }

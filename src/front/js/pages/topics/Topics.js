@@ -14,12 +14,10 @@ import Curso7 from "../../../img/Curso-7.jpg";
 import Curso8 from "../../../img/Curso-8.jpg";
 import Flag from "../../../img/flag.png";
 
-
-
 export const Topics = () => {
     const { store, actions } = useContext(Context);
     const params = useParams();
-    console.log(params.category)
+
     const recentlyAddedCourses = [{
         image: Curso1,
         description: "This course would provide an overview of the historical development of the immigration law in the U.S., including key legislation, agencies involved, and the basics of immigration processes and procedures.",
@@ -55,7 +53,7 @@ export const Topics = () => {
         description: "Focusing on family reunification, this course would explore the various family-based immigration categories, eligibility requirements, sponsorship obligations, and the process for obtaining family-based visas and green cards.",
         price: 15,
         sessionCount: 7
-    },{
+    }, {
         image: Curso8,
         description: "Empower immigrants to navigate U.S. roads with confidence in our specialized course, covering traffic rules, driving skills, and DMV procedures for obtaining a driver's license.",
         price: 23,
@@ -66,10 +64,20 @@ export const Topics = () => {
         price: 25,
         sessionCount: 5
     }]
-    console.log(store.token)
-    const [activeIdx, setActiveIdx] = useState(0)
-    const [carouselItemList, setCarouselItemList] = useState([])
+
+    const [activeIdx, setActiveIdx] = useState(0);
+    const [carouselItemList, setCarouselItemList] = useState([]);
+    const [courses, setCourses] = useState();
+
     useEffect(() => {
+
+        // const myCourses = actions.getCourses();
+        // if (myCourses === false) {
+        //     console.log("Error cargando los cursos.")
+        // } else {
+        //     setCourses(myCourses);
+        // }
+
         for (let i = 0; i < Math.ceil(recentlyAddedCourses.length / 3); i++) {
 
             setCarouselItemList((car) => car && [...car, 1])
@@ -81,7 +89,7 @@ export const Topics = () => {
             <div className="col-3"><img className="img-fluid rounded-circle" src={Flag} /></div>
             <div className="col-10 d-flex flex-column">
                 <h1 className="mb-4">{params.category}</h1>
-                <iframe width="600" height="400" src="https://www.youtube.com/embed/ym33y3qhCLc" title="Welcome to TimmiHow!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="600" height="400" src="https://www.youtube.com/embed/ym33y3qhCLc" title="Welcome to TimmiHow!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfallowFullScreen></iframe>
             </div>
         </div>
         <hr></hr>

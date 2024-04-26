@@ -3,30 +3,15 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
-from api.models import db, User, Provider, Consumer
+from api.models import db, User, Provider, Consumer, Course
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 from sqlalchemy.orm import sessionmaker
-
-# # Crear la aplicación Flask
-# app = Flask(__name__)
-
-# # Configurar la base de datos y otros ajustes
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your_database.db'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# app.config['JWT_SECRET_KEY'] = 'your_secret_key'
-
-# # Inicializar la extensión SQLAlchemy
-# db.init_app(app)
 
 api = Blueprint('api', __name__)
 
 # Allow CORS requests to this API
 CORS(api)
-
-# # Inicializar la extensión JWTManager
-# jwt = JWTManager(app)
-
 
 # Endpoint para agregar un nuevo usuario
 @api.route('/register', methods=['POST'])
@@ -114,6 +99,29 @@ def update_user(user_id):
 
     return jsonify({'message': 'User updated successfully'}), 200
 
+# Obtener todos los cursos y Crear un nuevo curso
+@api.route('/courses', methods=['GET', 'POST'])
+def handle_courses():
+    if request.method == 'GET':
+        courses = Course.query.all()
+        return jsonify([course.serialize() for course in courses]), 200
+
+    elif request.method == 'POST':
+        data = request.json
+        new_course = Course(
+            title=data['title'],
+            nationality=data['nationality'],
+            description=data['description'],
+            price=data['price'],
+            number_of_sessions=data['number_of_sessions'],
+            author=data['author'],
+            date_of_release=data['date_of_release']
+        )
+        db.session.add(new_course)
+        db.session.commit()
+        return jsonify(message='Course created successfully'), 201
+
+
 
 
 @api.route('/hello', methods=['POST', 'GET'])
@@ -124,10 +132,3 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
-
-# # Registrar el Blueprint con la aplicación Flask
-# app.register_blueprint(api)
-
-# # Entrada principal del programa
-# if __name__ == '__main__':
-#     api.run(debug=True)
