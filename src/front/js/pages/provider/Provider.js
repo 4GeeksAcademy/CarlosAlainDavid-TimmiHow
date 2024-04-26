@@ -15,7 +15,7 @@ export const Provider = () => {
             <div className="row">
                 <div className="col-6">
                     <h1>Your Courses</h1>
-                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion" id="accordionProvider">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -69,21 +69,21 @@ export const Provider = () => {
                                     <strong>Martin Luther King, Jr. y el movimiento de derechos civiles</strong> <br />
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                        4. La entrevista de USCIS
-                                    </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                                    <div class="accordion-body">
-                                        La clase cubrirá los requisitos básicos de fluidez en inglés, que incluyen:<br />
-                                        <strong>Ejemplos de frases de dictado.</strong>
-                                        <br />
-                                        <strong>Práctica de entrevista de ciudadanía.</strong>
-                                        <br />
-                                        <strong>La ceremonia de naturalización y el juramento de lealtad.</strong><br />
-                                    </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                                    4. La entrevista de USCIS
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                                <div class="accordion-body">
+                                    La clase cubrirá los requisitos básicos de fluidez en inglés, que incluyen:<br />
+                                    <strong>Ejemplos de frases de dictado.</strong>
+                                    <br />
+                                    <strong>Práctica de entrevista de ciudadanía.</strong>
+                                    <br />
+                                    <strong>La ceremonia de naturalización y el juramento de lealtad.</strong><br />
                                 </div>
                             </div>
                         </div>
@@ -91,17 +91,17 @@ export const Provider = () => {
 
                 </div>
                 <div className="col-6">
-                    <h1>Your Clients</h1>
+                    <h1>Your Students</h1>
 
-                    <div className="accordion" id="accordionEstudiantes">
-                        <div className="accordion-item">
-                            <h2 className="accordion-header" id="activos">
-                                <button className="accordion-button" type="button" onClick={toggleAccordion}>
-                                    Estudiantes Activos
+                    <div class="accordion" id="accordionStudents">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Estudiantes Activos (Clases en curso)
                                 </button>
                             </h2>
-                            <div className={`accordion-collapse collapse ${accordionOpen ? "show" : ""}`} aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div className="accordion-body">
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
                                     <div class="list-group">
                                         <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Pedro Pérez</a>
                                         <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Luisa Maya</a>
@@ -110,14 +110,14 @@ export const Provider = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="accordion-item">
-                            <h2 className="accordion-header" id="headingOne">
-                                <button className="accordion-button" type="button" onClick={toggleAccordion}>
-                                    Estudiantes Inactivos (curso terminado)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Estudiantes Inactivos (Clases Finalizadas)
                                 </button>
                             </h2>
-                            <div className={`accordion-collapse collapse ${accordionOpen ? "show" : ""}`} aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div className="accordion-body">
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
                                     <div class="list-group">
                                         <a href="#" class="list-group-item list-group-item-action list-group-item-success">Gabriel Garcia</a>
                                         <a href="#" class="list-group-item list-group-item-action list-group-item-success">Isabel Allende</a>
@@ -128,14 +128,14 @@ export const Provider = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="accordion-item">
-                            <h2 className="accordion-header" id="headingOne">
-                                <button className="accordion-button" type="button" onClick={toggleAccordion}>
-                                    Estudiantes Pendientes (curso sin terminar)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Estudiantes Pendientes (Clases pendientes)
                                 </button>
                             </h2>
-                            <div className={`accordion-collapse collapse ${accordionOpen ? "show" : ""}`} aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div className="accordion-body">
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
                                     <div class="list-group">
                                         <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Mario Duarte</a>
                                         <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Andrea Echeverry</a>
