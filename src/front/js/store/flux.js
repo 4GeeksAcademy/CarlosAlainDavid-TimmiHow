@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			localStorageCheck: undefined,
 			errorMessages: null,
 			successMessages: null,
+			courses: undefined,
 			demo: [
 				{
 					title: "FIRST",
@@ -108,6 +109,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 					localStorage.removeItem("role");
 				}
 			},
+			getCourses: async () => {
+				try {
+					// fetching data from the backend
+					const resp = await fetch(process.env.BACKEND_URL + "/api/courses")
+					const data = await resp.json()
+					setStore({ courses: data })
+					// don't forget to return something, that is how the async resolves
+					return data;
+				} catch (error) {
+					console.log("Error loading courses from backend", error);
+				}
+
+				// console.log("Error loading courses from backend", error);
+
+			},
+
 			resetEndPointsMsg: () => { setStore({ errorMessages: null, successMessages: null }) },
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

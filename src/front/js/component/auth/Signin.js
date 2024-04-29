@@ -50,7 +50,7 @@ export const Signin = ({ hideModal, modalRef }) => {
             aria-labelledby="exampleModalToggleLabel"
             aria-hidden="true"
             data-bs-backdrop='static'
-            tabindex="-1"
+            tabIndex="-1"
             ref={modalRef}>
             <div className="modal-dialog modal-sm">
                 <div className="modal-content" style={{ backgroundImage: `url(${grayBackground})`, backgroundSize: 'cover' }}>

@@ -48,7 +48,7 @@ export const Navbar = () => {
 
 	return <>
 		<nav className="navbar navbar-dark bg-dark">
-			<div class="container justify-content-end">
+			<div className="container justify-content-end">
 				<div className="ml-auto d-flex">
 					{store.localStorageCheck && !store.token
 						? <>
@@ -61,11 +61,11 @@ export const Navbar = () => {
 								onClick={showModalSignin}>
 								Sign-in
 							</button>
-							<vr className="
-									border 
+							<div className="vr border 
 									border-light 
 									border-1 
-									my-2" />
+									my-2"
+							/>
 							<button type="button"
 								className="
 									btn btn-link 
@@ -80,7 +80,7 @@ export const Navbar = () => {
 							<div className="text-light fs-6 d-flex align-items-center me-3 animate__animated animate__pulse">
 								{store.authenticatedUser ? store.authenticatedUser.username : <></>}
 							</div>
-							<vr className="border border-light border-1 my-2" />
+							<div className=" vr border border-light border-1 my-2" />
 							<button className="btn btn-link 
 									text-decoration-none 
 									text-light 

@@ -52,7 +52,7 @@ export const Signup = ({ hideModal, modalRef, showModalSignin }) => {
             id="exampleModalToggle2"
             aria-hidden="true"
             aria-labelledby="exampleModalToggleLabel2"
-            tabindex="-1"
+            tabIndex="-1"
             ref={modalRef}>
             <div className="modal-dialog modal-sm">
                 <div className="modal-content" style={{ backgroundImage: `url(${grayBackground})`, backgroundSize: 'cover' }}>
@@ -62,7 +62,7 @@ export const Signup = ({ hideModal, modalRef, showModalSignin }) => {
                             <h2 className="modal-title" style={{ color: "#071C3F" }}>Register</h2>
                             <button type="button" className="btn-close" onClick={hideModal} aria-label="Close"></button>
                         </div>
-                        <form style={{ color: "#071C3F" }} className="needs-validation" novalidate>
+                        <form style={{ color: "#071C3F" }} className="needs-validation" noValidate>
                             <div className="row">
                                 <div className="col">
                                     <div className="input-group-sm mb-3">
@@ -113,10 +113,10 @@ export const Signup = ({ hideModal, modalRef, showModalSignin }) => {
                                             onChange={event => setPassword(event.target.value)}
                                         />
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-check">
-                                                <input class="form-check-input"
+                                    <div className="row">
+                                        <div className="col">
+                                            <div className="form-check">
+                                                <input className="form-check-input"
                                                     type="radio"
                                                     name="exampleRadios"
                                                     id="exampleRadios1"
@@ -124,24 +124,24 @@ export const Signup = ({ hideModal, modalRef, showModalSignin }) => {
                                                     checked={role === "provider"}
                                                     onChange={() => setRole("provider")}
                                                 />
-                                                <label class="form-check-label" for="exampleRadios1">
+                                                <label className="form-check-label" htmlFor="exampleRadios1">
                                                     Provider
                                                 </label>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input"
+                                            <div className="form-check">
+                                                <input className="form-check-input"
                                                     type="radio" name="exampleRadios"
                                                     id="exampleRadios2"
                                                     value={role}
                                                     checked={role === "consumer"}
                                                     onChange={() => setRole("consumer")}
                                                 />
-                                                <label class="form-check-label" for="exampleRadios2">
+                                                <label className="form-check-label" htmlFor="exampleRadios2">
                                                     Consumer
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="col">
+                                        <div className="col">
                                             <div className="input-group-sm d-flex justify-content-end">
                                                 <button type="button"
                                                     className="btn btn-link text-decoration-none shadow-none"
