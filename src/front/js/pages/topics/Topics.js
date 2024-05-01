@@ -13,7 +13,7 @@ import Curso6 from "../../../img/Curso-6.jpg";
 import Curso7 from "../../../img/Curso-7.jpg";
 import Curso8 from "../../../img/Curso-8.jpg";
 import Flag from "../../../img/flag.png";
-// import "../../../styles/topics.css"
+import "../../../styles/topics.css";
 
 export const Topics = () => {
     const { store, actions } = useContext(Context);
@@ -66,11 +66,9 @@ export const Topics = () => {
         sessionCount: 5
     }]
 
-    const [activeIdx, setActiveIdx] = useState(0);
+    const [activeIndex, setActiveIdx] = useState(0);
     const [carouselItemList, setCarouselItemList] = useState([]);
     const [courses, setCourses] = useState([]);
-
-
 
 
     useEffect(() => {
@@ -121,44 +119,76 @@ export const Topics = () => {
                 <h2>Recently Added Courses</h2>
                 <div className="carousel slide">
                     <div className="carousel-inner">
-                        {carouselItemList.map((item, index) => {
-                            const courseIterIdx = index * 3
-                            return <div className={`carousel-item ${index == activeIdx && "active"}`}>
-                                <div className="d-flex gap-4">
-                                    {courseIterIdx <= recentlyAddedCourses.length - 1 && <CourseCard image={recentlyAddedCourses[courseIterIdx].image} description={recentlyAddedCourses[courseIterIdx].description} price={recentlyAddedCourses[courseIterIdx].price} sessionCount={recentlyAddedCourses[courseIterIdx].sessionCount} />}
+                        {courses.map((item, index) => {
+                            const courseIterIndex = index * 3
+                            return <div className={`carousel-item ${index == activeIndex && "active"}`}>
+                                {/* <div className="d-flex gap-4"> */}
+                                <div className="cards-wrapper">
+                                    {courseIterIndex <= courses.length - 1 &&
+                                        <div className="card">
+                                            <CourseCard title={courses[courseIterIndex].title}
+                                                image={courses[courseIterIndex].image}
+                                                description={courses[courseIterIndex].description}
+                                                price={courses[courseIterIndex].price}
+                                                sessionCount={courses[courseIterIndex].sessionCount}
+                                            />
+                                        </div>
+                                    }
 
-                                    {courseIterIdx + 1 <= recentlyAddedCourses.length - 1 && <CourseCard image={recentlyAddedCourses[courseIterIdx + 1].image} description={recentlyAddedCourses[courseIterIdx + 1].description} price={recentlyAddedCourses[courseIterIdx + 1].price} sessionCount={recentlyAddedCourses[courseIterIdx + 1].sessionCount} />}
+                                    {courseIterIndex + 1 <= courses.length - 1 &&
+                                        <div className="card d-none d-md-block">
+                                            <CourseCard title={courses[courseIterIndex + 1].title}
+                                                image={courses[courseIterIndex + 1].image}
+                                                description={courses[courseIterIndex + 1].description}
+                                                price={courses[courseIterIndex + 1].price}
+                                                sessionCount={courses[courseIterIndex + 1].sessionCount}
+                                            />
+                                        </div>
+                                    }
 
-                                    {courseIterIdx + 2 <= recentlyAddedCourses.length - 1 && <CourseCard image={recentlyAddedCourses[courseIterIdx + 2].image} description={recentlyAddedCourses[courseIterIdx + 2].description} price={recentlyAddedCourses[courseIterIdx + 2].price} sessionCount={recentlyAddedCourses[courseIterIdx + 2].sessionCount} />}
+                                    {courseIterIndex + 2 <= courses.length - 1 &&
+                                        <div className="card d-none d-md-block">
+                                            <CourseCard title={courses[courseIterIndex + 2].title}
+                                                image={courses[courseIterIndex + 2].image}
+                                                description={courses[courseIterIndex + 2].description}
+                                                price={courses[courseIterIndex + 2].price}
+                                                sessionCount={courses[courseIterIndex + 2].sessionCount}
+                                            />
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         }
                         )}
-                        <button
-                            className="carousel-control-prev"
-                            type="button"
-                            data-bs-target="#carouselExample"
-                            data-bs-slide="prev"
-                            onClick={() => setActiveIdx(state => state > 0 && state - 1 || 0)}
-                        >
-                            <span className="carousel-control-prev-icon" aria-hidden="true" />
-                            <span className="visually-hidden">Previous</span>
-                        </button>
-                        <button
-                            className="carousel-control-next"
-                            type="button"
-                            data-bs-target="#carouselExample"
-                            data-bs-slide="next"
-                            onClick={() => { setActiveIdx(state => state < carouselItemList.length - 1 && state + 1 || 0) }}
-                        >
-                            <span className="carousel-control-next-icon" aria-hidden="true" />
-                            <span className="visually-hidden">Next</span>
-                        </button>
+                        {activeIndex !== 0 ?
+                            <button
+                                className="carousel-control-prev"
+                                type="button"
+                                data-bs-target="#carouselExample"
+                                data-bs-slide="prev"
+                                onClick={() => { setActiveIdx(state => state > 0 && state - 1 || 0); console.log(activeIndex) }}
+                            >
+                                <span className="carousel-control-prev-icon" aria-hidden="true" />
+                                <span className="visually-hidden">Previous</span>
+                            </button> : <></>
+                        }
+                        {/* esta condicion ""activeIndex !== 2"" se debe cambiar aun valor dinamico para q funcione con diferentes tamanos de [] */}
+                        {activeIndex !== 2 ?
+                            <button
+                                className="carousel-control-next"
+                                type="button"
+                                data-bs-target="#carouselExample"
+                                data-bs-slide="next"
+                                onClick={() => { setActiveIdx(state => state < carouselItemList.length - 1 && state + 1 || 0); console.log(activeIndex) }}
+                            >
+                                <span className="carousel-control-next-icon" aria-hidden="true" />
+                                <span className="visually-hidden">Next</span>
+                            </button> : <></>
+                        }
                     </div>
                 </div>
             </div>
             <hr></hr>
         </div>
     </div>
-
 }

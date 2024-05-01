@@ -66,6 +66,9 @@ class Course(db.Model):
     number_of_sessions = db.Column(db.Integer, nullable=False)
     author = db.Column(db.String(100), nullable=False) 
     date_of_release = db.Column(db.Date)
+    reviews_counter = db.Column(db.Integer, default=0) 
+    reviews_rate = db.Column(db.Float, default=0.0)  
+    image = db.Column(db.String(100), default = "rigo")
 
     def __repr__(self):
         return f'<Course {self.title}>'
@@ -79,5 +82,8 @@ class Course(db.Model):
             'price': self.price,
             'number_of_sessions': self.number_of_sessions,
             'author': self.author,
-            'date_of_release': self.date_of_release.strftime('%Y-%m-%d') if self.date_of_release else None
+            'date_of_release': self.date_of_release.strftime('%Y-%m-%d') if self.date_of_release else None,
+            'reviews_counter': self.reviews_counter,
+            'reviews_rate': self.reviews_rate,
+            'image': self.image,
         }
