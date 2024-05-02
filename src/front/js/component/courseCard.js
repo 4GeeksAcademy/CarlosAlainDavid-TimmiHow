@@ -63,7 +63,7 @@ const CourseCard = ({ title, image, description, price, sessionCount }) => {
             <img className="img-fluid" src={image} />
             <p>{description}</p>
             <div className="d-flex justify-content-between align-items-center">
-                <p>Price: <span className="text-danger">USD$ </span>{price}</p>
+                {price && <p>Price: <span className="text-danger">USD$ </span>{price}</p>}
                 <p>Total of Sessions:{sessionCount}</p>
                 <button className="btn btn-warning">Book className</button>
             </div>
