@@ -94,21 +94,16 @@ export const Signin = ({ hideModal, modalRef }) => {
                                             </button>
                                         </div>
                                     </div>
+                                    <div className="modal-footer border border-0 p-0">
+                                        <button type="button"
+                                            className="btn btn-primary"
+                                            style={{ backgroundColor: "#D43381", border: "none" }}
+                                            onClick={event => handleLogin(event)}>
+                                            Submit
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
-                        </div>
-                        <div className="modal-footer border border-0 p-0">
-                            {/* <button type="button"
-                                className="btn btn-secondary"
-                                onClick={hideModal}>
-                                    Close
-                            </button> */}
-                            <button type="button"
-                                className="btn btn-primary"
-                                style={{ backgroundColor: "#D43381", border: "none" }}
-                                onClick={event => handleLogin(event)}>
-                                Submit
-                            </button>
                         </div>
                     </div>
                 </div>

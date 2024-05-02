@@ -4,6 +4,7 @@ import { Context } from "../store/appContext";
 import { Link, Navigate } from "react-router-dom";
 import { Signin } from "./auth/Signin";
 import { Signup } from "./auth/Signup";
+
 import Logo from "../../img/timmihow-name-xs.png";
 
 export const Navbar = () => {

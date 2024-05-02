@@ -44,8 +44,8 @@ const OurCourses = () => {
                             {selection.description} </p>
                     </div>
                     {/* <button className="btn btn-warning">Book your first class!</button> */}
-                    <Link to={`topics/${selection.subtitle.replaceAll(category, "-")}`} className="btn btn-primary">
-                        <button className="btn btn-warning">See Courses!</button>
+                    <Link to={`topics/${selection.subtitle.replaceAll(category, "-")}`}>
+                        <button className="btn btn-warning" style={{ color: '#031C3F' }}>See Courses!</button>
                     </Link>
                 </div>}
             </div>
