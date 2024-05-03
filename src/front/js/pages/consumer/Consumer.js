@@ -58,7 +58,7 @@ export const Consumer = () => {
         <div className="container text-center">
             <div className="row">
                 <div className="col">
-                    <h1 style={{ fontWeight: 'bold', paddingBottom: '20px' }}>My Courses</h1>
+                    <h1 style={{ fontWeight: 'bold', paddingBottom: '20px', color: '#031C3F' }}>My Courses</h1>
                     <Carousel responsive={responsive}>
 
                         {courses.map((item, index) => {
@@ -78,7 +78,7 @@ export const Consumer = () => {
                 </div>
             </div>
             <div className="row" style={{ paddingTop: '20px' }}> {/* Añade padding superior aquí */}
-                <h2 style={{ fontWeight: 'bold' }}>Programa tus clases</h2>
+                <h2 style={{ fontWeight: 'bold', color: '#031C3F' }}>Programa tus clases</h2>
                 <div className="App">
                     <InlineWidget styles={{ height: "80vh" }} url={store.calendlyUrl} />
                 </div>

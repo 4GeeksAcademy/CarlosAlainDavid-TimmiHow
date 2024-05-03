@@ -96,7 +96,7 @@ export const Navbar = () => {
 			</div>
 		</nav>
 		<div className="Navbar-bottom w-100 d-flex align-items-center justify-content-between gap-2 px-3 py-2">
-			<div style={{ width: "7%" }}>
+			<div style={{ width: "7%" }} className="animate_animated animate__bounceIn">
 				<Link to="/">
 					<img className="img-fluid" src={Logo} />
 				</Link>
