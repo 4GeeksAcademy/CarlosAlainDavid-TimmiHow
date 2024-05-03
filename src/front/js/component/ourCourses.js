@@ -31,7 +31,7 @@ const OurCourses = () => {
             <div className="our-advantages col text-center pt-5">
                 <h1 className="Section-3"><span className="font-size-headers our-blue">Our Courses</span></h1>
             </div>
-            <div class="d-flex">
+            <div className="d-flex">
                 <div style={{ position: "relative" }} className="col-6">
                     <img className="img-fluid pb-5" src={Metatron} />
                     {courseList.map((course, index) => <img onClick={() => setSelection(courseList[index])} style={{ width: 120, position: "absolute", top: course.y, left: course.x }} src={course.image} alt={course.subtitle} />)}
@@ -43,7 +43,7 @@ const OurCourses = () => {
                         <p className="Introductory-Text text-light lead fading text-align-center">
                             {selection.description} </p>
                     </div>
-                    {/* <button className="btn btn-warning">Book your first class!</button> */}
+                    {/* <button className="btn btn-warning">Book your first className!</button> */}
                     <Link to={`topics/${selection.subtitle.replaceAll(category, "-")}`}>
                         <button className="btn btn-warning">See Courses!</button>
                     </Link>

@@ -1,4 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import relationship, backref
+
+
 from flask_bcrypt import Bcrypt
 
 db = SQLAlchemy()
@@ -33,9 +36,12 @@ class User(db.Model):
 
 class Provider(User):
     __tablename__ = 'providers'
-    
 
     # Campos específicos para el proveedor
+
+    # Relación uno a muchos: un proveedor puede tener varios cursos
+    courses = db.relationship('Course', backref='provider', lazy='dynamic', foreign_keys='Course.provider_id')
+    # courses = db.relationship('Course', backref='provider')
 
     __mapper_args__ = {
         'polymorphic_identity': 'provider'
@@ -49,6 +55,9 @@ class Consumer(User):
    
     # Campos específicos para el consumidor
 
+    # Relación muchos a muchos con los cursos
+    courses = db.relationship('Course', secondary='consumer_course', backref='consumers')
+
     __mapper_args__ = {
         'polymorphic_identity': 'consumer'
     }
@@ -56,6 +65,12 @@ class Consumer(User):
     def __repr__(self):
         return f'<Consumer {self.username}>'
     
+# Clase para la tabla intermedia para la relación muchos a muchos entre Consumer y Course
+class ConsumerCourse(db.Model):
+    __tablename__ = 'consumer_course'
+    consumer_id = db.Column(db.Integer, db.ForeignKey(Consumer.id), primary_key=True)
+    course_id = db.Column(db.Integer, db.ForeignKey('courses.id'), primary_key=True)
+
 class Course(db.Model):
     __tablename__ = 'courses'
     id = db.Column(db.Integer, primary_key=True)
@@ -69,6 +84,11 @@ class Course(db.Model):
     reviews_counter = db.Column(db.Integer, default=0) 
     reviews_rate = db.Column(db.Float, default=0.0)  
     image = db.Column(db.String(100), default = "rigo")
+    calendly_url = db.Column(db.String(255))
+    
+    provider_id = db.Column(db.Integer, db.ForeignKey(Provider.id))  
+    provider_relation = db.relationship("Provider", overlaps="courses,provider")
+    
 
     def __repr__(self):
         return f'<Course {self.title}>'
@@ -86,4 +106,6 @@ class Course(db.Model):
             'reviews_counter': self.reviews_counter,
             'reviews_rate': self.reviews_rate,
             'image': self.image,
+            'calendly_url': self.calendly_url,
+            'provider_id': self.provider_id
         }

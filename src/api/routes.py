@@ -61,7 +61,7 @@ def handle_logins():
         return jsonify({'message': 'Incorrect email or password'}), 401
 
     access_token = create_access_token(identity=user.id)
-    return jsonify(access_token=access_token, email=user.email, role=user.role, username=user.username), 201
+    return jsonify(access_token=access_token, email=user.email, role=user.role, username=user.username, id=user.id), 201
 
 
 # Endpoint para eliminar un usuario
@@ -120,9 +120,26 @@ def handle_courses():
         db.session.add(new_course)
         db.session.commit()
         return jsonify(message='Course created successfully'), 201
+    
+# Obtener los cursos de un usuario-consumer
+@api.route('/consumer/<int:consumer_id>/courses', methods=['GET'])
+def get_consumer_courses(consumer_id):
+    consumer = Consumer.query.get_or_404(consumer_id)
+    courses = consumer.courses
+    return jsonify([course.serialize() for course in courses])
 
+# Obtener los cursos de un usuario-provider
+@api.route('/provider/<int:provider_id>/courses', methods=['GET'])
+def get_provider_courses(provider_id):
+    provider = Provider.query.get_or_404(provider_id)
+    courses = provider.courses
+    return jsonify([course.serialize() for course in courses])
 
-
+# Obtener un curso
+@api.route('/course/<int:course_id>', methods=['GET'])
+def get_course(course_id):
+    course = Course.query.get_or_404(course_id)
+    return jsonify(course.serialize())
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():

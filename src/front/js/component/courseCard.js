@@ -26,9 +26,9 @@ const CourseCard = ({ title, image, description, price, sessionCount }) => {
     }
 
     const handleEntry = () => {
-        if (store.authenticatedUser === undefined) {
+        if (store.localStorageCheck && !store.token) {
             showModalSignin();
-        } else if (store.authenticatedUser.role === "consumer") {
+        } else if (store.role === "consumer") {
             navigate('/consumer');
         } else navigate('/provider');
     }
