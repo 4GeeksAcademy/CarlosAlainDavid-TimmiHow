@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Signin } from "./auth/Signin";
 
-const CourseCard = ({ consumer, calendlyUrl, setCalendlyUrl, title, image, description, price, sessionCount }) => {
+const CourseCard = ({ consumer, calendlyUrl, title, image, description, price, sessionCount }) => {
 
-    const { store } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const navigate = useNavigate();
     const modalRefSignin = useRef()
 
@@ -33,7 +33,8 @@ const CourseCard = ({ consumer, calendlyUrl, setCalendlyUrl, title, image, descr
                 navigate('/consumer');
             } else navigate('/provider');
         } else {
-            return
+            actions.setCalendlyUrl(calendlyUrl);
+            // setCalendlyUrl(calendlyUrl);
         }
 
     }
@@ -56,23 +57,6 @@ const CourseCard = ({ consumer, calendlyUrl, setCalendlyUrl, title, image, descr
             modalRef={modalRefSignin}
             hideModal={hideModalSignin}
         />
-
-        {/* <Signup
-			modalRef={modalRefSignup}
-			hideModal={hideModalSignup}
-			showModalSignin={showModalSignin}
-		/> */}
-
-        {/* <div className="d-block" style={{ width: "33%" }}>
-
-            <img className="img-fluid" src={image} />
-            <p>{description}</p>
-            <div className="d-flex justify-content-between align-items-center">
-                {price && <p>Price: <span className="text-danger">USD$ </span>{price}</p>}
-                <p>Total of Sessions:{sessionCount}</p>
-                <button className="btn btn-warning">Book className</button>
-            </div>
-        </div> */}
     </>
 
 

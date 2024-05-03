@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			errorMessages: null,
 			successMessages: null,
 			courses: undefined,
+			calendlyUrl: 'https://calendly.com/aestradap17/30min',
 			demo: [
 				{
 					title: "FIRST",
@@ -136,6 +137,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading courses from backend", error);
 				}
 
+			},
+			setCalendlyUrl: (calendlyUrl) => {
+				setStore({ calendlyUrl: calendlyUrl })
 			},
 
 			resetEndPointsMsg: () => { setStore({ errorMessages: null, successMessages: null }) },

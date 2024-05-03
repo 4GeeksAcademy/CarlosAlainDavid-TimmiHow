@@ -4,6 +4,7 @@ import { InlineWidget } from "react-calendly";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import CourseCard from "../../component/courseCard";
+import { Calendly } from "./Calendly"
 import curso1 from '../../../img/Curso-1.jpg'
 import cursociudadania from '../../../img/cursociudadania1.png'
 import examenuscis from '../../../img/cursociudadania2.png'
@@ -13,7 +14,7 @@ import entrevista from '../../../img/cursociudadania4.png'
 export const Consumer = () => {
     const { store, actions } = useContext(Context);
     const [courses, setCourses] = useState([]);
-    const [calendlyUrl, setCalendlyUrl] = useState('https://calendly.com/aestradap17/30min');
+    // const [calendlyUrl, setCalendlyUrl] = useState('https://calendly.com/aestradap17/30min');
 
 
     useEffect(() => {
@@ -62,7 +63,7 @@ export const Consumer = () => {
 
                         {courses.map((item, index) => {
                             return <div className="card">
-                                <CourseCard width="95%"
+                                <CourseCard index={index} width="95%"
                                     consumer={true}
                                     calendlyUrl={item.calendly_url}
                                     setCalendlyUrl={() => setCalendlyUrl()}
@@ -79,7 +80,7 @@ export const Consumer = () => {
             <div className="row" style={{ paddingTop: '20px' }}> {/* Añade padding superior aquí */}
                 <h2 style={{ fontWeight: 'bold' }}>Programa tus clases</h2>
                 <div className="App">
-                    <InlineWidget styles={{ height: "80vh" }} url={calendlyUrl} />
+                    <InlineWidget styles={{ height: "80vh" }} url={store.calendlyUrl} />
                 </div>
             </div>
         </div>
