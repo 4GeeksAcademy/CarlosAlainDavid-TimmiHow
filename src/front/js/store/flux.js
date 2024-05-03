@@ -122,6 +122,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 				// console.log("Error loading courses from backend", error);
+			},
+
+			getCustomerCourses: async (id) => {
+				try {
+					// fetching data from the backend
+					const resp = await fetch(process.env.BACKEND_URL + `/api/consumer/${id}`)
+					const data = await resp.json()
+					setStore({ consumerCourses: data })
+
+					return data;
+				} catch (error) {
+					console.log("Error loading courses from backend", error);
+				}
 
 			},
 

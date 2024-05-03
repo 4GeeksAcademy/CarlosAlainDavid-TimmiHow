@@ -122,7 +122,7 @@ def handle_courses():
         return jsonify(message='Course created successfully'), 201
     
 # Obtener los cursos de un usuario-consumer
-@api.route('/consumer/<int:consumer_id>/courses', methods=['GET'])
+@api.route('/consumer/<int:consumer_id>', methods=['GET'])
 def get_consumer_courses(consumer_id):
     consumer = Consumer.query.get_or_404(consumer_id)
     courses = consumer.courses

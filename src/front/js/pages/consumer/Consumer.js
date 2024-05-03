@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { InlineWidget } from "react-calendly";
 import Carousel from 'react-multi-carousel';
@@ -12,6 +12,27 @@ import entrevista from '../../../img/cursociudadania4.png'
 
 export const Consumer = () => {
     const { store, actions } = useContext(Context);
+    const [courses, setCourses] = useState([]);
+    const [calendlyUrl, setCalendlyUrl] = useState('https://calendly.com/aestradap17/30min');
+
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            try {
+                const myCourses = await actions.getCustomerCourses(1);
+                if (!myCourses) {
+                    console.log("Error cargando los cursos.");
+                } else {
+                    setCourses(myCourses);
+                }
+            } catch (error) {
+                console.log("Error:", error);
+            }
+        };
+
+        fetchCourses();
+    }, []);
+
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -33,22 +54,32 @@ export const Consumer = () => {
     };
 
     return <>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col">
+        <div className="container text-center">
+            <div className="row">
+                <div className="col">
                     <h1 style={{ fontWeight: 'bold', paddingBottom: '20px' }}>My Courses</h1>
                     <Carousel responsive={responsive}>
-                        <CourseCard width="95%" image={cursociudadania} description={<span style={{ fontWeight: 'bold' }}>SOLICITUD DE LA CIUDADANÍA</span>} sessionCount={2} />
-                        <CourseCard width="95%" image={examenuscis} description={<span style={{ fontWeight: 'bold' }}>LAS 100 PREGUNTAS DE USCIS</span>} sessionCount={2} />
-                        <CourseCard width="95%" image={gobiernoehistoria} description={<span style={{ fontWeight: 'bold' }}>HISTORIA Y GOBIERNO</span>} sessionCount={2} />
-                        <CourseCard width="95%" image={entrevista} description={<span style={{ fontWeight: 'bold' }}>LA ENTREVISTA</span>} sessionCount={2} />
+
+                        {courses.map((item, index) => {
+                            return <div className="card">
+                                <CourseCard width="95%"
+                                    consumer={true}
+                                    calendlyUrl={item.calendly_url}
+                                    setCalendlyUrl={() => setCalendlyUrl()}
+                                    image={item.image}
+                                    description={<span style={{ fontWeight: 'bold' }}>{item.author}</span>}
+                                    sessionCount={item.sessionCount}
+                                />
+                            </div>
+
+                        })}
                     </Carousel>
                 </div>
             </div>
-            <div class="row" style={{ paddingTop: '20px' }}> {/* Añade padding superior aquí */}
+            <div className="row" style={{ paddingTop: '20px' }}> {/* Añade padding superior aquí */}
                 <h2 style={{ fontWeight: 'bold' }}>Programa tus clases</h2>
                 <div className="App">
-                    <InlineWidget styles={{ height: "80vh" }} url="https://calendly.com/aestradap17/30min" />
+                    <InlineWidget styles={{ height: "80vh" }} url={calendlyUrl} />
                 </div>
             </div>
         </div>

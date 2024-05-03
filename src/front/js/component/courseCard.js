@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Signin } from "./auth/Signin";
 
-const CourseCard = ({ title, image, description, price, sessionCount }) => {
+const CourseCard = ({  consumer, calendlyUrl, setCalendlyUrl, title, image, description, price, sessionCount }) => {
 
     const { store } = useContext(Context);
     const navigate = useNavigate();
@@ -26,11 +26,16 @@ const CourseCard = ({ title, image, description, price, sessionCount }) => {
     }
 
     const handleEntry = () => {
-        if (store.localStorageCheck && !store.token) {
-            showModalSignin();
-        } else if (store.role === "consumer") {
-            navigate('/consumer');
-        } else navigate('/provider');
+        if(!consumer){
+            if (store.localStorageCheck && !store.token) {
+                showModalSignin();
+            } else if (store.role === "consumer") {
+                navigate('/consumer');
+            } else navigate('/provider');
+        }else {
+            setCalendlyUrl(calendlyUrl);
+        }
+        
     }
 
     return <>
