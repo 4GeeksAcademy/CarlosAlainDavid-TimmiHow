@@ -103,8 +103,8 @@ export const Provider = () => {
                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     <div class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Pedro Pérez</a>
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Luisa Maya</a>
+                                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Ernesto Medina</a>
+                                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Nancy Cambell</a>
                                         <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Margarita Flores</a>
                                     </div>
                                 </div>
@@ -153,7 +153,7 @@ export const Provider = () => {
             </div>
             <div className="row">
                 <div className="col">
-                    <InlineWidget styles={{ height: "80vh" }} url="https://calendly.com/aestradap17" />
+                    <InlineWidget styles={{ height: "80vh" }} url="https://calendly.com/timmihow87" />
                 </div>
             </div>
         </div>
